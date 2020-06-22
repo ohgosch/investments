@@ -1,7 +1,12 @@
+<p align="center">
+  <a href="https://investments.gosch.io/">
+    <img alt="Investments" src="./src/assets/img/logo.svg" width="200" />
+  </a>
+</p>
 <h1 align="center">
-  React Boilerplate
+  Investments
 </h1>
-A simple boilerplate.
+Track your investments easily and simply.
 
 ## Available Scripts
 
