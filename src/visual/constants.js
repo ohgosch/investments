@@ -3,6 +3,7 @@ export const COLORS = {
   pink: '#DF78D6',
   dark: '#1C2124',
   white: '#F6F7F8',
+  whiteAlpha: (opacity) => `rgba(246, 247, 248, ${opacity})`,
 };
 
 export const RESOLUTIONS = {
