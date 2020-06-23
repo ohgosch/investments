@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://investments.gosch.io/">
-    <img alt="Investments" src="./src/assets/img/logo.svg" width="200" />
+    <img alt="Investments" src="./src/assets/img/logo.svg" width="350" />
   </a>
 </p>
 <h1 align="center">
