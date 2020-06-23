@@ -4,6 +4,7 @@ import { tabletDesktop, mobile } from 'visual/medias';
 import { HiddenElement } from 'visual/styles/HiddenElement';
 import { Wrapper } from 'visual/styles/Wrapper';
 import { Input } from 'visual/styles/Input';
+import { COLORS } from 'visual/constants';
 
 import iconCalendar from 'assets/img/icon-calendar.svg';
 
@@ -37,4 +38,9 @@ export const Period = styled(Input)`
     background-size: 15px auto;
     width: 40px;
   `)}
+
+  &:focus {
+    border-color: ${COLORS.pink};
+    outline-color: ${COLORS.pink};
+  }
 `;
