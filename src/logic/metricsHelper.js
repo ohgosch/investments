@@ -70,6 +70,12 @@ export function filterByLast2Years(data) {
   return filtered;
 }
 
+/**
+ * Get Period by Larger Amount
+ * 
+ * @param {Arra[]} data 
+ * @returns {Array[]}
+ */
 export function getByLargerAmount(data) {
   let larger = [];
 
@@ -82,6 +88,12 @@ export function getByLargerAmount(data) {
   return larger;
 }
 
+/**
+ * Get Period by Smaller Amount
+ * 
+ * @param {Arra[]} data 
+ * @returns {Array[]}
+ */
 export function getBySmallerAmount(data) {
   let smaller = [];
 
