@@ -6,7 +6,7 @@ import { pxToRem } from 'logic/pxToRem';
 export const Button = styled.button`
   box-sizing: border-box;
   border-radius: 5px;
-  height: 40px;
+  height: ${pxToRem(40)};
   padding: 0 15px;
   font-style: normal;
   background-color: ${COLORS.dark};

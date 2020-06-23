@@ -4,7 +4,7 @@ import { pxToRem } from 'logic/pxToRem';
 
 export const Container = styled.div`
   display: grid;
-  grid-row-gap: 15px;
+  grid-row-gap: ${pxToRem(15)};
 `;
 
 export const Title = styled.h2`

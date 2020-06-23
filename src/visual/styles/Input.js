@@ -6,8 +6,7 @@ import { pxToRem } from 'logic/pxToRem';
 export const Input = styled.input`
   box-sizing: border-box;
   border-radius: 5px;
-  border-radius: 5px;
-  height: 40px;
+  height: ${pxToRem(40)};
   padding: 0 15px;
   font-style: normal;
   background-color: transparent;

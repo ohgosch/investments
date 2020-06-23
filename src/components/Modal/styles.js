@@ -3,6 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 
 import { tabletDesktop, mobile } from 'visual/medias';
 import { COLORS } from 'visual/constants';
+import { pxToRem } from 'logic/pxToRem';
 
 import closeImage from 'assets/img/close.svg';
 
@@ -55,13 +56,13 @@ export const Content = styled.section`
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  min-height: 50px;
+  min-height: ${pxToRem(50)};
   padding: 50px;
   width: 100%;
   ${tabletDesktop(css`
     border-radius: 8px;
     max-height: 90vh;
-    max-width: 450px;
+    max-width: ${pxToRem(450)};
   `)}
   ${mobile(css`
     height: 100vh;
@@ -74,8 +75,8 @@ export const Content = styled.section`
 `
 
 export const Close = styled.button`
-  width: 30px;
-  height: 30px;
+  width: ${pxToRem(30)};
+  height: ${pxToRem(30)};
   position: absolute;
   right: 15px;
   top: 15px;
@@ -83,7 +84,7 @@ export const Close = styled.button`
   background-image: url(${closeImage});
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 12px;
+  background-size: ${pxToRem(15)};
   border: none;
   z-index: 10;
   background-color: ${COLORS.white};
