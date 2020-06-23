@@ -53,3 +53,13 @@ src
 └── visual       # Any file related of app style
     └── styles   # The local of global Styled Components
 ```
+
+## Motivations
+### Table and Chart
+We use a table to improve the accessibility of the application.
+
+### Lint
+All the code have lint coverage using eslint airbnb.
+
+### Modal
+The modal have a context architecture for ensure accessibility.
