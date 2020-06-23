@@ -4,6 +4,7 @@ export const COLORS = {
   dark: '#1C2124',
   white: '#F6F7F8',
   whiteAlpha: (opacity) => `rgba(246, 247, 248, ${opacity})`,
+  darkAlpha: (opacity) => `rgba(28, 33, 36, ${opacity})`,
 };
 
 export const RESOLUTIONS = {

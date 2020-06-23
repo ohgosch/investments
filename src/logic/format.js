@@ -38,3 +38,17 @@ export function formatFullDate(timestamp) {
 
   return moment(date).format(DATES.dateFull);
 }
+
+export function timestampToInput(timestamp) {
+  const date = moment(timestamp);
+  const formatted = date.format(DATES.INPUT);
+
+  return formatted;
+}
+
+export function inputToTimestamp(value) {
+  const date = moment(value, DATES.INPUT);
+  const formatted = date.format(DATES.TIMESTAMP);
+
+  return +formatted;
+}

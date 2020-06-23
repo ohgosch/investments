@@ -29,19 +29,11 @@ export function PeriodProvider({ children }) {
   }
 
   function updateMin(value) {
-    const minRule = getMinDate();
-    let setted;
-    if (value > minRule) setted = { ...period, min: minRule };
-    else setted = value;
-    setGlobalPeriod(setted);
+    setGlobalPeriod({ ...period, min: value });
   }
 
   function updateMax(value) {
-    const maxRule = getMaxDate();
-    let setted;
-    if (value > maxRule) setted = { ...period, max: maxRule };
-    else setted = value;
-    setGlobalPeriod(setted);
+    setGlobalPeriod({ ...period, max: value });
   }
 
   const setPeriodDefault = useCallback(
