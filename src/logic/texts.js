@@ -12,7 +12,7 @@ export const TEXTS = {
         all: 'Desde o início',
         last30Days: 'Último mês',
         last3Months: '3 meses',
-        lastYear: '1 ano',
+        last1Year: '1 ano',
         last2Years: '2 anos',
       },
     },

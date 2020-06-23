@@ -5,6 +5,7 @@ import { PeriodContext } from 'contexts/PeriodContext';
 import { MetricsContext } from 'contexts/MetricsContext';
 import { getMinDate, getMaxDate } from 'logic/dateHelper';
 
+import { checkSelected } from '../helpers';
 import { Preset } from '../styles';
 
 export function PresetAll() {
@@ -15,7 +16,7 @@ export function PresetAll() {
   const minRule = getMinDate(metrics);
   const maxRule = getMaxDate(metrics);
 
-  const isSelected = min === minRule && max === maxRule;
+  const isSelected = checkSelected(min, max, minRule, maxRule);
 
   function clickHandler() {
     if (isSelected) return;
