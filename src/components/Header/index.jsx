@@ -10,7 +10,7 @@ import { PeriodManager } from 'components/PeriodManager';
 import { Container, Content, Logo, Title, Period } from './styles';
 
 export function Header() {
-  const [openedModal, setOpenedModal] = useState(true);
+  const [openedModal, setOpenedModal] = useState(false);
   const { period, ready } = useContext(PeriodContext);
   const { min, max } = period;
   const minFormated = formatFullDate(min);

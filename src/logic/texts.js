@@ -19,5 +19,8 @@ export const TEXTS = {
   },
   modal: {
     close: 'Fechar modal'
-  }
+  },
+  chart: {
+    serieTitle: 'Rendimento'
+  },
 };
