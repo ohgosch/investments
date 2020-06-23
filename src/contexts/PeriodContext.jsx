@@ -2,7 +2,6 @@ import React, { createContext, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import { getMinDate, getMaxDate } from 'logic/dateHelper';
-import { getBetterPeriod } from 'logic/periodHelper';
 
 const storageKey = 'PERIOD';
 
@@ -50,7 +49,9 @@ export function PeriodProvider({ children }) {
       const { min, max } = period;
 
       if (!min && !max) {
-        setGlobalPeriod(getBetterPeriod(data));
+        const minRule = getMinDate(data);
+        const maxRule = getMaxDate(data);
+        setGlobalPeriod({ min: minRule, max: maxRule });
       }
       setReady(true);
     },
