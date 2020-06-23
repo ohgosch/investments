@@ -18,7 +18,7 @@ export function axesChart() {
     {
       position: 'right',
       type: 'linear',
-      stacked: true,
+      stacked: false,
       format: formatChartAmount,
     },
   ];
