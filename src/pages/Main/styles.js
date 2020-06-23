@@ -10,6 +10,7 @@ export const Content = styled(Wrapper)`
 export const ChartWrapper = styled.div`
   width: 100%;
   height: 350px;
+  overflow: hidden;
 
   text {
     fill: ${COLORS.white} !important;
