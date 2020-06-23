@@ -13,7 +13,7 @@ export function PresetLast3Months() {
   const { period, updatePeriod } = useContext(PeriodContext);
   const { min, max } = period;
   const { last3Months } = TEXTS.header.periodModal.presets;
-  const { min: minPreset, max: maxPreset } = getPeriodLast3Months();
+  const { min: minPreset, max: maxPreset } = getPeriodLast3Months(metrics);
 
   const disabled = !haveDataLast3Months(metrics);
   const isSelected = checkSelected(min, max, minPreset, maxPreset);

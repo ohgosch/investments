@@ -8,29 +8,16 @@ import {
   filterByLast1Year,
   filterByLast2Years,
 } from './metricsHelper';
-
-/**
- * Get timestamp of Now
- * 
- * @returns {Number}
- */
-function getNow() {
-  const date = moment(new Date());
-  date.hours(0);
-  date.minutes(0);
-  date.seconds(0);
-  date.millisecond(0);
-
-  return +date.format(DATES.TIMESTAMP);
-}
+import { getMaxDate } from './dateHelper';
 
 /**
  * Get Period of Last 30 Days
  * 
+ * @param {Array[]} data 
  * @returns {Object} period
  */
-export function getPeriodLast30Days() {
-  const max = getNow();
+export function getPeriodLast30Days(data) {
+  const max = getMaxDate(data);
   const min = +moment(max).subtract(30, 'day').format(DATES.TIMESTAMP);
 
   return { min, max };
@@ -39,10 +26,11 @@ export function getPeriodLast30Days() {
 /**
  * Get Period of Last 3 Months
  * 
+ * @param {Array[]} data 
  * @returns {Object} period
  */
-export function getPeriodLast3Months() {
-  const max = getNow();
+export function getPeriodLast3Months(data) {
+  const max = getMaxDate(data);
   const min = +moment(max).subtract(3, 'month').format(DATES.TIMESTAMP);
 
   return { min, max };
@@ -51,10 +39,11 @@ export function getPeriodLast3Months() {
 /**
  * Get Period of Last 1 Year
  * 
+ * @param {Array[]} data 
  * @returns {Object} period
  */
-export function getPeriodLast1Year() {
-  const max = getNow();
+export function getPeriodLast1Year(data) {
+  const max = getMaxDate(data);
   const min = +moment(max).subtract(1, 'year').format(DATES.TIMESTAMP);
 
   return { min, max };
@@ -63,10 +52,11 @@ export function getPeriodLast1Year() {
 /**
  * Get Period of Last 2 Years
  * 
+ * @param {Array[]} data 
  * @returns {Object} period
  */
-export function getPeriodLast2Years() {
-  const max = getNow();
+export function getPeriodLast2Years(data) {
+  const max = getMaxDate(data);
   const min = +moment(max).subtract(2, 'year').format(DATES.TIMESTAMP);
 
   return { min, max };

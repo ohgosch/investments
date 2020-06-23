@@ -14,7 +14,7 @@ export function PresetLast2Years() {
   const { period, updatePeriod } = useContext(PeriodContext);
   const { min, max } = period;
   const { last2Years } = TEXTS.header.periodModal.presets;
-  const { min: minPreset, max: maxPreset } = getPeriodLast2Years();
+  const { min: minPreset, max: maxPreset } = getPeriodLast2Years(metrics);
   const minRule = getMinDate(metrics);
 
   const disabled = !haveDataLast2Years(metrics) || minPreset < minRule;

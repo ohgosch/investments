@@ -14,7 +14,7 @@ export function PresetLast1Year() {
   const { period, updatePeriod } = useContext(PeriodContext);
   const { min, max } = period;
   const { last1Year } = TEXTS.header.periodModal.presets;
-  const { min: minPreset, max: maxPreset } = getPeriodLast1Year();
+  const { min: minPreset, max: maxPreset } = getPeriodLast1Year(metrics);
   const minRule = getMinDate(metrics);
 
   const isDisabled = !haveDataLast1Year(metrics) || minPreset < minRule;
