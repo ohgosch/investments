@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import { Wrapper } from 'visual/styles/Wrapper';
-import { COLORS } from 'visual/constants';
 import { HiddenElement } from 'visual/styles/HiddenElement';
 import { pxToRem } from 'logic/pxToRem';
 
