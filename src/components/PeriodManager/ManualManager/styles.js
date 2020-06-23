@@ -19,4 +19,5 @@ export const DateWrapper = styled.div`
 
 export const Date = styled(Input)`
   padding-right: 10px;
+  width: 100%;
 `;
