@@ -11,9 +11,9 @@ export const TEXTS = {
       presets: {
         all: 'Desde o início',
         last30Days: 'Último mês',
-        last3Months: '3 meses',
-        last1Year: '1 ano',
-        last2Years: '2 anos',
+        last3Months: 'Últimos 3 meses',
+        last1Year: 'Último ano',
+        last2Years: 'Últimos 2 anos',
       },
     },
   },
