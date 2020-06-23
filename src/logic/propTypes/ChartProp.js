@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-export const ChartProp = {
-  label: PropTypes.string.isRequired,
-  data: PropTypes.arrayOf(
-    PropTypes.arrayOf(PropTypes.number)
-  ),
-};
+// [[0, 0]]
+export const MetricProp = PropTypes.arrayOf(
+  PropTypes.arrayOf(
+    PropTypes.number
+  )
+);

@@ -1,11 +1,10 @@
 import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
 import { Chart as ChartLib } from 'react-charts';
 
-import { ChartProp } from 'logic/propTypes/ChartProp';
+import { MetricProp } from 'logic/propTypes/ChartProp';
 import { formatChartAmount, formatChartDate } from 'logic/format';
 
-export function Chart({ data }) {
+export function Chart({ metrics }) {
   const series = useMemo(
     () => ({
       type: 'area',
@@ -30,6 +29,17 @@ export function Chart({ data }) {
     ],
     [],
   );
+
+  const data = useMemo(
+    () => [
+      {
+        specialLabel: 'Hello World!',
+        label: 'Series 1',
+        data: metrics,
+      },
+    ],
+    [metrics],
+  );
   return (
     <>
       <ChartLib data={data} series={series} axes={axes} tooltip dark />
@@ -38,7 +48,7 @@ export function Chart({ data }) {
 }
 
 Chart.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape(ChartProp)).isRequired,
+  metrics: MetricProp.isRequired,
 };
 
 export default Chart;

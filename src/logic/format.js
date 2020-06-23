@@ -32,3 +32,9 @@ export function formatChartDate(timestamp) {
   }
   return moment(date).format(DATES.dateFull);
 }
+
+export function formatFullDate(timestamp) {
+  const date = new Date(timestamp);
+
+  return moment(date).format(DATES.dateFull);
+}
