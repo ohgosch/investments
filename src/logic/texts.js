@@ -23,4 +23,7 @@ export const TEXTS = {
   chart: {
     serieTitle: 'Rendimento'
   },
+  main: {
+    title: 'Rendimento',
+  },
 };

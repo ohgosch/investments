@@ -1,7 +1,17 @@
+/**
+ * Get Dates By Data
+ * @param {Array[]} data 
+ * @returns {Number[]} dates
+ */
 export function getDatesByData(data) {
   return data.map(item => item[0]);
 }
 
+/**
+ * Get Min Date
+ * @param {Array[]} data
+ * @returns {Number} min value
+ */
 export function getMinDate(data) {
   const dates = getDatesByData(data);
   let min;
@@ -12,6 +22,11 @@ export function getMinDate(data) {
   return min;
 };
 
+/**
+ * Get Max Date
+ * @param {Array[]} data 
+ * @returns {Number} max value
+ */
 export function getMaxDate(data) {
   const dates = getDatesByData(data);
   let max = 0;

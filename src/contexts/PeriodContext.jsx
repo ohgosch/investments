@@ -23,27 +23,40 @@ export function PeriodProvider({ children }) {
   const [period, setPeriod] = useState(initialState);
   const [ready, setReady] = useState(false);
 
+  /**
+   * Update state and storage
+   *
+   * @param {Object} period value
+   * @param {Number} period.min
+   * @param {Number} period.max
+   */
   function setGlobalPeriod(value) {
     setPeriod(value);
     setPeriodInStorage(value);
   }
 
-  function updateMin(value) {
-    setGlobalPeriod({ ...period, min: value });
+  /**
+   * Update min period
+   * @param {Number} min
+   */
+  function updateMin(min) {
+    setGlobalPeriod({ ...period, min });
   }
 
-  function updateMax(value) {
-    setGlobalPeriod({ ...period, max: value });
+  /**
+   * Update max period
+   * @param {Number} max
+   */
+  function updateMax(max) {
+    setGlobalPeriod({ ...period, max });
   }
 
-  function updatePeriod(value) {
-    setGlobalPeriod(value);
-  }
-
+  // Called when MetricsContext finish fetch
   const setPeriodDefault = useCallback(
     (data) => {
       const { min, max } = period;
 
+      // If is not storaged
       if (!min && !max) {
         const minRule = getMinDate(data);
         const maxRule = getMaxDate(data);
@@ -54,10 +67,11 @@ export function PeriodProvider({ children }) {
     [period],
   );
 
+  // Object to value
   const publicValue = {
     updateMin,
     updateMax,
-    updatePeriod,
+    updatePeriod: setGlobalPeriod,
     setPeriodDefault,
     period,
     ready,

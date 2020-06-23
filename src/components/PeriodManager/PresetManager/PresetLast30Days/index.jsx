@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 
 import { TEXTS } from 'logic/texts';
+import { getPeriodLast30Days, haveDataLast30Days } from 'logic/periodHelper';
 import { PeriodContext } from 'contexts/PeriodContext';
 import { MetricsContext } from 'contexts/MetricsContext';
 
-import { getPeriodLast30Days, haveDataLast30Days } from 'logic/periodHelper';
+import { checkSelected } from '../helpers';
 import { Preset } from '../styles';
 
 export function PresetLast30Days() {
@@ -15,7 +16,7 @@ export function PresetLast30Days() {
   const { min: minPreset, max: maxPreset } = getPeriodLast30Days();
 
   const disabled = !haveDataLast30Days(metrics);
-  const isSelected = min === minPreset && max === maxPreset;
+  const isSelected = checkSelected(min, max, minPreset, maxPreset);
 
   function clickHandler() {
     if (isSelected) return;

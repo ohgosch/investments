@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 
 import { TEXTS } from 'logic/texts';
+import { getMinDate, getMaxDate } from 'logic/dateHelper';
 import { PeriodContext } from 'contexts/PeriodContext';
 import { MetricsContext } from 'contexts/MetricsContext';
-import { getMinDate, getMaxDate } from 'logic/dateHelper';
 
 import { checkSelected } from '../helpers';
 import { Preset } from '../styles';

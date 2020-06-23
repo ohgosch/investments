@@ -1,10 +1,19 @@
 import moment from 'moment';
 
-import { getMinDate, getMaxDate } from 'logic/dateHelper';
 import { DATES } from 'logic/constants';
 
-import { filterByLast30Days, filterByLast3Months, filterByLast1Year, filterByLast2Years } from './metricsHelper';
+import {
+  filterByLast30Days,
+  filterByLast3Months,
+  filterByLast1Year,
+  filterByLast2Years,
+} from './metricsHelper';
 
+/**
+ * Get timestamp of Now
+ * 
+ * @returns {Number}
+ */
 function getNow() {
   const date = moment(new Date());
   date.hours(0);
@@ -15,6 +24,11 @@ function getNow() {
   return +date.format(DATES.TIMESTAMP);
 }
 
+/**
+ * Get Period of Last 30 Days
+ * 
+ * @returns {Object} period
+ */
 export function getPeriodLast30Days() {
   const max = getNow();
   const min = +moment(max).subtract(30, 'day').format(DATES.TIMESTAMP);
@@ -22,6 +36,11 @@ export function getPeriodLast30Days() {
   return { min, max };
 }
 
+/**
+ * Get Period of Last 3 Months
+ * 
+ * @returns {Object} period
+ */
 export function getPeriodLast3Months() {
   const max = getNow();
   const min = +moment(max).subtract(3, 'month').format(DATES.TIMESTAMP);
@@ -29,6 +48,11 @@ export function getPeriodLast3Months() {
   return { min, max };
 }
 
+/**
+ * Get Period of Last 1 Year
+ * 
+ * @returns {Object} period
+ */
 export function getPeriodLast1Year() {
   const max = getNow();
   const min = +moment(max).subtract(1, 'year').format(DATES.TIMESTAMP);
@@ -36,6 +60,11 @@ export function getPeriodLast1Year() {
   return { min, max };
 }
 
+/**
+ * Get Period of Last 2 Years
+ * 
+ * @returns {Object} period
+ */
 export function getPeriodLast2Years() {
   const max = getNow();
   const min = +moment(max).subtract(2, 'year').format(DATES.TIMESTAMP);
@@ -43,35 +72,46 @@ export function getPeriodLast2Years() {
   return { min, max };
 }
 
-
+/**
+ * Have Data of Last 30 Days
+ * 
+ * @param {Array[]} data 
+ * @returns {Boolean}
+ */
 export function haveDataLast30Days(data) {
   const filtered = filterByLast30Days(data);
-  return filtered.length;
+  return !!filtered.length;
 }
 
+/**
+ * Have Data of Last 3 Months
+ * 
+ * @param {Array[]} data 
+ * @returns {Boolean}
+ */
 export function haveDataLast3Months(data) {
   const filtered = filterByLast3Months(data);
-  return filtered.length;
+  return !!filtered.length;
 }
 
+/**
+ * Have Data of Last 1 Year
+ * 
+ * @param {Array[]} data 
+ * @returns {Boolean}
+ */
 export function haveDataLast1Year(data) {
   const filtered = filterByLast1Year(data);
-  return filtered.length;
+  return !!filtered.length;
 }
 
+/**
+ * Have Data of Last 2 Years
+ * 
+ * @param {Array[]} data 
+ * @returns {Boolean}
+ */
 export function haveDataLast2Years(data) {
   const filtered = filterByLast2Years(data);
-  return filtered.length;
-}
-
-export function getBetterPeriod(data) {
-  if (haveDataLast30Days(data)) return getPeriodLast30Days(data);
-  if (haveDataLast3Months(data)) return getPeriodLast3Months(data);
-  if (haveDataLast1Year(data)) return getPeriodLast1Year(data);
-  if (haveDataLast2Years(data)) return getPeriodLast2Years(data);
-
-  const min = getMinDate(data);
-  const max = getMaxDate(data);
-
-  return { min, max };
+  return !!filtered.length;
 }

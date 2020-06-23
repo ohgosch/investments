@@ -17,24 +17,27 @@ const initialState = [];
 export function MetricsProvider({ children }) {
   const { setPeriodDefault } = useContext(PeriodContext);
   const [metrics, setMetrics] = useState(initialState);
-  const [loaded, setLoaded] = useState(false);
 
+  /**
+   * Fetch API data
+   */
   const fetch = useCallback(async () => {
-    setLoaded(false);
     const { data } = await getMetrics();
     setMetrics(data);
-    setLoaded(true);
+
+    // Call period context for calc min and max rules
     setPeriodDefault(data);
   }, [setPeriodDefault]);
 
+  // Fetch data when rendered
   useEffect(() => {
     fetch();
   }, [fetch]);
 
+  // Object to value
   const publicValue = {
     fetch,
     metrics,
-    loaded,
   };
 
   return (

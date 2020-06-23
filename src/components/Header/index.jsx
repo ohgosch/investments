@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 
 import { TEXTS } from 'logic/texts';
-import { PeriodContext } from 'contexts/PeriodContext';
-
-import logoSVG from 'assets/img/logo.svg';
 import { formatFullDate } from 'logic/format';
 import { Modal } from 'components/Modal';
 import { PeriodManager } from 'components/PeriodManager';
+import { PeriodContext } from 'contexts/PeriodContext';
+
+import logoSVG from 'assets/img/logo.svg';
 import { Container, Content, Logo, Title, Period } from './styles';
 
 export function Header() {

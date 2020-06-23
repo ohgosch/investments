@@ -1,5 +1,8 @@
-import API from "logic/api";
+import API from 'logic/api';
 
-export async function getMetrics(min, max) {
+/**
+ * Get Metrics
+ */
+export async function getMetrics() {
   return await API().get('/mock-data.js');
 }

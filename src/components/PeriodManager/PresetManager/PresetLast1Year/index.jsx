@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 
+import { getPeriodLast1Year, haveDataLast1Year } from 'logic/periodHelper';
+import { getMinDate } from 'logic/dateHelper';
 import { TEXTS } from 'logic/texts';
 import { PeriodContext } from 'contexts/PeriodContext';
 import { MetricsContext } from 'contexts/MetricsContext';
 
-import { getPeriodLast1Year, haveDataLast1Year } from 'logic/periodHelper';
-import { getMinDate } from 'logic/dateHelper';
 import { checkSelected } from '../helpers';
 import { Preset } from '../styles';
 

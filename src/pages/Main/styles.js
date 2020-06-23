@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 import { Wrapper } from 'visual/styles/Wrapper';
 import { COLORS } from 'visual/constants';
+import { HiddenElement } from 'visual/styles/HiddenElement';
 
-export const Container = styled.div``;
-
-export const Content = styled(Wrapper)`
+export const Container = styled.main`
+  margin-top: 50px;
 `;
+
+export const Title = styled(HiddenElement)``;
+
+export const Content = styled(Wrapper)``;
 
 export const ChartWrapper = styled.div`
   width: 100%;

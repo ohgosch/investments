@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 
 import { TEXTS } from 'logic/texts';
+import { getMinDate } from 'logic/dateHelper';
+import { getPeriodLast2Years, haveDataLast2Years } from 'logic/periodHelper';
 import { PeriodContext } from 'contexts/PeriodContext';
 import { MetricsContext } from 'contexts/MetricsContext';
 
-import { getPeriodLast2Years, haveDataLast2Years } from 'logic/periodHelper';
-import { getMinDate } from 'logic/dateHelper';
+import { checkSelected } from '../helpers';
 import { Preset } from '../styles';
 
 export function PresetLast2Years() {
@@ -17,7 +18,7 @@ export function PresetLast2Years() {
   const minRule = getMinDate(metrics);
 
   const disabled = !haveDataLast2Years(metrics) || minPreset < minRule;
-  const isSelected = min === minPreset && max === maxPreset;
+  const isSelected = checkSelected(min, max, minPreset, maxPreset);
 
   function clickHandler() {
     if (isSelected) return;

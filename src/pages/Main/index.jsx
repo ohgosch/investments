@@ -4,7 +4,8 @@ import { Chart } from 'components/Chart';
 import { MetricsContext } from 'contexts/MetricsContext';
 import { PeriodContext } from 'contexts/PeriodContext';
 import { filterByPeriod } from 'logic/filter';
-import { Container, Content, ChartWrapper } from './styles';
+import { TEXTS } from 'logic/texts';
+import { Container, Content, ChartWrapper, Title } from './styles';
 
 export function Main() {
   const { metrics } = useContext(MetricsContext);
@@ -15,6 +16,7 @@ export function Main() {
   const metricsFiltered = filterByPeriod(metrics, min, max);
   return (
     <Container>
+      <Title>{TEXTS.main.title}</Title>
       <Content>
         <ChartWrapper>
           {canRenderChart && <Chart metrics={metricsFiltered} />}
