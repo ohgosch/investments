@@ -27,7 +27,7 @@ export function Header() {
   return (
     <Container>
       <Content>
-        <Title>{TEXTS.title}</Title>
+        <Title as="h1">{TEXTS.title}</Title>
         <Logo src={logoSVG} alt={TEXTS.header.logoAlt} />
         {ready && (
           <Period

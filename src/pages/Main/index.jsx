@@ -16,7 +16,7 @@ export function Main() {
   const metricsFiltered = filterByPeriod(metrics, min, max);
   return (
     <Container>
-      <Title>{TEXTS.main.title}</Title>
+      <Title as="h2">{TEXTS.main.title}</Title>
       <Content>
         <ChartWrapper>
           {canRenderChart && <Chart metrics={metricsFiltered} />}
