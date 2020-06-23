@@ -16,18 +16,29 @@ export function ManualManager() {
   const minRule = getMinDate(metrics);
   const maxRule = getMaxDate(metrics);
 
-  function minHandler(event) {
-    const { value } = event.target;
+  function minHandler({ target }) {
+    const { value } = target;
+    if (!value) return false;
     const valueTimestamp = inputToTimestamp(value);
 
+    // When value is larger of max
+    if (valueTimestamp >= max) return updateMin(max);
+
+    // When value is smaller of minRule
     if (valueTimestamp < minRule) return updateMin(minRule);
     return updateMin(valueTimestamp);
   }
 
-  function maxHandler(event) {
-    const { value } = event.target;
+  function maxHandler({ target }) {
+    const { value } = target;
+    if (!value) return false;
+
     const valueTimestamp = inputToTimestamp(value);
 
+    // When value is smaller of min
+    if (valueTimestamp <= min) return updateMax(min);
+
+    // When value is larger of maxRule
     if (valueTimestamp > maxRule) return updateMax(maxRule);
     return updateMax(valueTimestamp);
   }
@@ -43,6 +54,7 @@ export function ManualManager() {
           value={timestampToInput(min)}
           onChange={minHandler}
           id="min-date"
+          required
         />
       </DateWrapper>
       <DateWrapper>
@@ -54,6 +66,7 @@ export function ManualManager() {
           value={timestampToInput(max)}
           onChange={maxHandler}
           id="max-date"
+          required
         />
       </DateWrapper>
     </Container>
