@@ -13,7 +13,12 @@ export const Input = styled.input`
   font-weight: 600;
   font-size: ${pxToRem(14)};
   color: ${COLORS.dark};
+  outline-color: ${COLORS.pink};
   border: 2px solid;
+
+  &:focus {
+    border-color: ${COLORS.pink};
+  }
 
   ${p => p.dark && css`
     color: ${COLORS.white};

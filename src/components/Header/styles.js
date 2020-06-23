@@ -4,7 +4,6 @@ import { tabletDesktop, mobile } from 'visual/medias';
 import { HiddenElement } from 'visual/styles/HiddenElement';
 import { Wrapper } from 'visual/styles/Wrapper';
 import { Input } from 'visual/styles/Input';
-import { COLORS } from 'visual/constants';
 import { pxToRem } from 'logic/pxToRem';
 
 import iconCalendar from 'assets/img/icon-calendar.svg';
@@ -31,8 +30,6 @@ export const Logo = styled.img`
 `;
 
 export const Period = styled(Input)`
-  outline-color: ${COLORS.pink};
-
   ${mobile(css`
     font-size: 0;
     background-image: url(${iconCalendar});
@@ -41,8 +38,4 @@ export const Period = styled(Input)`
     background-size: ${pxToRem(15)} auto;
     width: ${pxToRem(40)};
   `)}
-
-  &:focus {
-    border-color: ${COLORS.pink};
-  }
 `;

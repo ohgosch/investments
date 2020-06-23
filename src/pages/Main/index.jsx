@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import { Chart } from 'components/Chart';
+import { ChartTable } from 'components/ChartTable';
 import { MetricsContext } from 'contexts/MetricsContext';
 import { PeriodContext } from 'contexts/PeriodContext';
 import { filterByPeriod } from 'logic/filter';
@@ -18,6 +19,7 @@ export function Main() {
     <Container>
       <Title as="h2">{TEXTS.main.title}</Title>
       <Content>
+        <ChartTable metrics={metricsFiltered} />
         <ChartWrapper>
           {canRenderChart && <Chart metrics={metricsFiltered} />}
         </ChartWrapper>

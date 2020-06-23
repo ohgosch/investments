@@ -25,5 +25,11 @@ export const TEXTS = {
   },
   main: {
     title: 'Rendimento',
+    table: {
+      caption: (min, max) => `Tabela de Rendimentos no período de ${min} à ${max}`,
+      date: 'Data',
+      amount: 'Valor do rendimento',
+      summary: (largerDate, largerAmount, smallerDate, smallerAmount) => `A data com maior rendimento foi ${largerDate} no valor de ${largerAmount}. A data com o menor rendimento foi ${smallerDate} no valor de ${smallerAmount}`,
+    }
   },
 };

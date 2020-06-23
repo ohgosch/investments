@@ -1,28 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { TEXTS } from 'logic/texts';
+import { ModalContext } from 'contexts/ModalContext';
 
 import { Container, Content, Close, CloseOverlay } from './styles';
 
-export function Modal({ children, close, opened }) {
-  const tabIndex = opened ? 0 : -1;
+export function Modal({ children }) {
+  const { closeModal } = useContext(ModalContext);
 
   return (
-    <Container opened={opened} aria-hidden={!opened} role="dialog">
+    <Container role="dialog">
       {/* Button overlay for close the modal */}
-      <CloseOverlay onClick={close} tabIndex={tabIndex}>
+      <CloseOverlay onClick={closeModal} aria-hidden="true">
         {TEXTS.modal.close}
       </CloseOverlay>
 
       <Content>
-        <Close
-          id="period-modal"
-          title={TEXTS.modal.close}
-          onClick={close}
-          tabIndex={tabIndex}
-        />
-        {opened && children}
+        <Close title={TEXTS.modal.close} onClick={closeModal} autoFocus />
+        {children}
       </Content>
     </Container>
   );
@@ -30,10 +26,4 @@ export function Modal({ children, close, opened }) {
 
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
-  close: PropTypes.func.isRequired,
-  opened: PropTypes.bool,
-};
-
-Modal.defaultProps = {
-  opened: false,
 };

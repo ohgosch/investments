@@ -69,3 +69,27 @@ export function filterByLast2Years(data) {
   const filtered = filterByPeriod(data, min, max);
   return filtered;
 }
+
+export function getByLargerAmount(data) {
+  let larger = [];
+
+  data.forEach((item) => {
+    const [, amount] = item;
+    if (!larger[1]) return larger = item;
+    if (amount > larger[1]) return larger = item;
+  });
+
+  return larger;
+}
+
+export function getBySmallerAmount(data) {
+  let smaller = [];
+
+  data.forEach((item) => {
+    const [, amount] = item;
+    if (!smaller[1]) return smaller = item;
+    if (amount < smaller[1]) return smaller = item;
+  });
+
+  return smaller;
+}

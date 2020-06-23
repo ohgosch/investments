@@ -5,6 +5,7 @@ import { Main } from 'pages/Main';
 import { Header } from 'components/Header';
 import { PeriodProvider } from 'contexts/PeriodContext';
 import { MetricsProvider } from 'contexts/MetricsContext';
+import { ModalProvider } from 'contexts/ModalContext';
 
 export function App() {
   return (
@@ -12,8 +13,10 @@ export function App() {
       <GlobalStyle />
       <PeriodProvider>
         <MetricsProvider>
-          <Header />
-          <Main />
+          <ModalProvider>
+            <Header />
+            <Main />
+          </ModalProvider>
         </MetricsProvider>
       </PeriodProvider>
     </>

@@ -1,27 +1,23 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 import { TEXTS } from 'logic/texts';
 import { formatFullDate } from 'logic/format';
-import { Modal } from 'components/Modal';
 import { PeriodManager } from 'components/PeriodManager';
 import { PeriodContext } from 'contexts/PeriodContext';
+import { ModalContext } from 'contexts/ModalContext';
 
 import logoSVG from 'assets/img/logo.svg';
 import { Container, Content, Logo, Title, Period } from './styles';
 
 export function Header() {
-  const [openedModal, setOpenedModal] = useState(false);
   const { period, ready } = useContext(PeriodContext);
+  const { openModal } = useContext(ModalContext);
   const { min, max } = period;
-  const minFormated = formatFullDate(min);
-  const maxFormated = formatFullDate(max);
+  const minFormatted = formatFullDate(min);
+  const maxFormatted = formatFullDate(max);
 
-  function closeModal() {
-    setOpenedModal(false);
-  }
-
-  function openModal() {
-    setOpenedModal(true);
+  function openModalHandler() {
+    openModal(PeriodManager);
   }
 
   return (
@@ -32,17 +28,14 @@ export function Header() {
         {ready && (
           <Period
             as="button"
-            onClick={openModal}
+            onClick={openModalHandler}
             title={TEXTS.header.periodTitle}
             dark
           >
-            {TEXTS.header.periodButtonContent(minFormated, maxFormated)}
+            {TEXTS.header.periodButtonContent(minFormatted, maxFormatted)}
           </Period>
         )}
       </Content>
-      <Modal opened={openedModal} close={closeModal}>
-        <PeriodManager />
-      </Modal>
     </Container>
   );
 }

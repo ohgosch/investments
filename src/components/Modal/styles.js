@@ -28,16 +28,9 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  pointer-events: none;
   z-index: 50;
-  ${p =>
-    p.opened &&
-    css`
-      animation: ${fadeIn} 0.2s ease-in;
-      opacity: 1;
-      pointer-events: auto;
-    `}
+  animation: ${fadeIn} 0.2s ease-in;
+  opacity: 1;
 `
 
 export const CloseOverlay = styled.button`
