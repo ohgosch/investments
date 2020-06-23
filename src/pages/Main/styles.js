@@ -7,6 +7,7 @@ import { pxToRem } from 'logic/pxToRem';
 
 export const Container = styled.main`
   margin-top: ${pxToRem(50)};
+  overflow: hidden;
 `;
 
 export const Title = styled(HiddenElement)``;
@@ -16,12 +17,4 @@ export const Content = styled(Wrapper)``;
 export const ChartWrapper = styled.div`
   width: 100%;
   height: ${pxToRem(350)};
-  overflow: hidden;
-
-  text {
-    fill: ${COLORS.white} !important;
-  }
-  .gridLine {
-    stroke: ${COLORS.whiteAlpha('.1')} !important;
-  }
 `;

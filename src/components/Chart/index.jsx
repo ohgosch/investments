@@ -14,7 +14,15 @@ export function Chart({ metrics }) {
 
   return (
     <>
-      <ChartLib data={data} series={series} axes={axes} tooltip dark />
+      <ChartLib
+        data={data}
+        series={series}
+        axes={axes}
+        primaryCursor
+        secondaryCursor
+        tooltip
+        dark
+      />
     </>
   );
 }
