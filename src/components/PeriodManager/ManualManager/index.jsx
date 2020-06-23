@@ -38,7 +38,7 @@ export function ManualManager() {
         <Label htmlFor="min-date">{TEXTS.header.periodModal.min}</Label>
         <Date
           type="date"
-          max={timestampToInput(maxRule)}
+          max={timestampToInput(max)}
           min={timestampToInput(minRule)}
           value={timestampToInput(min)}
           onChange={minHandler}
@@ -50,7 +50,7 @@ export function ManualManager() {
         <Date
           type="date"
           max={timestampToInput(maxRule)}
-          min={timestampToInput(minRule)}
+          min={timestampToInput(min)}
           value={timestampToInput(max)}
           onChange={maxHandler}
           id="max-date"

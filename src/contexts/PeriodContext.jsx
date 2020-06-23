@@ -36,6 +36,10 @@ export function PeriodProvider({ children }) {
     setGlobalPeriod({ ...period, max: value });
   }
 
+  function updatePeriod(value) {
+    setGlobalPeriod(value);
+  }
+
   const setPeriodDefault = useCallback(
     (data) => {
       const { min, max } = period;
@@ -53,6 +57,7 @@ export function PeriodProvider({ children }) {
   const publicValue = {
     updateMin,
     updateMax,
+    updatePeriod,
     setPeriodDefault,
     period,
     ready,

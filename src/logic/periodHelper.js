@@ -1,32 +1,44 @@
 import moment from 'moment';
 
 import { getMinDate, getMaxDate } from 'logic/dateHelper';
+import { DATES } from 'logic/constants';
+
 import { filterByLast30Days, filterByLast3Months, filterByLast1Year, filterByLast2Years } from './metricsHelper';
 
-export function getPeriodLast30Days(data) {
-  const max = moment(new Date()).valueOf();
-  const min = moment(max).subtract(30, 'day').valueOf();
+function getNow() {
+  const date = moment(new Date());
+  date.hours(0);
+  date.minutes(0);
+  date.seconds(0);
+  date.millisecond(0);
+
+  return +date.format(DATES.TIMESTAMP);
+}
+
+export function getPeriodLast30Days() {
+  const max = getNow();
+  const min = +moment(max).subtract(30, 'day').format(DATES.TIMESTAMP);
 
   return { min, max };
 }
 
-export function getPeriodLast3Months(data) {
-  const max = moment(new Date()).valueOf();
-  const min = moment(max).subtract(3, 'month').valueOf();
+export function getPeriodLast3Months() {
+  const max = getNow();
+  const min = +moment(max).subtract(3, 'month').format(DATES.TIMESTAMP);
 
   return { min, max };
 }
 
-export function getPeriodLast1Year(data) {
-  const max = moment(new Date()).valueOf();
-  const min = moment(max).subtract(1, 'year').valueOf();
+export function getPeriodLast1Year() {
+  const max = getNow();
+  const min = +moment(max).subtract(1, 'year').format(DATES.TIMESTAMP);
 
   return { min, max };
 }
 
-export function getPeriodLast2Years(data) {
-  const max = moment(new Date()).valueOf();
-  const min = moment(max).subtract(2, 'year').valueOf();
+export function getPeriodLast2Years() {
+  const max = getNow();
+  const min = +moment(max).subtract(2, 'year').format(DATES.TIMESTAMP);
 
   return { min, max };
 }

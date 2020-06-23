@@ -8,6 +8,13 @@ export const TEXTS = {
       title: 'Troca de período',
       min: 'Mínimo',
       max: 'Máximo',
+      presets: {
+        all: 'Desde o início',
+        last30Days: 'Último mês',
+        last3Months: '3 meses',
+        lastYear: '1 ano',
+        last2Years: '2 anos',
+      },
     },
   },
   modal: {
